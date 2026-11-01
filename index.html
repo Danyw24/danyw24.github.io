@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel — Security Research & AI Automation</title>
+<meta name="description" content="Independent security researcher and AI automation developer. Founder of Tolosa Studio.">
+<style>
+  :root{
+    --bg:#faf9f5; --ink:#1f1e1b; --muted:#6e6a5e; --accent:#c96442; --line:#e8e4d9; --card:#fffdf8;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.7 Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto;padding:48px 24px 96px}
+  header{border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:40px}
+  h1{font-size:34px;font-weight:400;letter-spacing:-.5px}
+  h1 em{color:var(--accent);font-style:normal}
+  .tag{color:var(--muted);font-size:15px;margin-top:8px}
+  nav{margin-top:20px;font-family:ui-monospace,monospace;font-size:13px}
+  nav a{color:var(--accent);text-decoration:none;margin-right:18px}
+  nav a:hover{text-decoration:underline}
+  h2{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif;margin:48px 0 16px}
+  article{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:14px}
+  article h3{font-size:19px;font-weight:400}
+  article h3 a{color:var(--ink);text-decoration:none}
+  article h3 a:hover{color:var(--accent)}
+  .meta{font-family:ui-monospace,monospace;font-size:12px;color:var(--accent);margin:2px 0 8px}
+  p{color:#3d3a33}
+  .tags{margin-top:10px;font-family:ui-monospace,monospace;font-size:11.5px;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  ul.plain{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:14.5px}
+  ul.plain li::before{content:"— ";color:var(--accent)}
+  footer{border-top:1px solid var(--line);margin-top:56px;padding-top:20px;color:var(--muted);font-size:13.5px;font-family:ui-monospace,monospace}
+  @media(max-width:640px){.grid,ul.plain{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Daniel <em>·</em> Security Research &amp; AI Automation</h1>
+  <p class="tag">Independent researcher and developer. Founder of <strong>Tolosa Studio</strong>. Medellín, Colombia.</p>
+  <p class="tag">I break things carefully, then build automation so nobody has to do it twice.</p>
+  <nav>
+    <a href="https://github.com/Danyw24">github ↗</a>
+    <a href="mailto:hola@tolasastudio.dev">email</a>
+    <a href="#research">research</a>
+    <a href="#ai">ai &amp; automation</a>
+  </nav>
+</header>
+
+<h2 id="research">Security research</h2>
+<div class="grid">
+  <article>
+    <h3><a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking-">ZyXEL P-870HN: from bare PCB to root</a></h3>
+    <div class="meta">hardware · UART · CVE-2025-0890 + CVE-2024-40891</div>
+    <p>Full hardware-hacking writeup of a Broadcom BCM6368 router on my own equipment: UART discovery, firmware analysis, and chained CVEs to root shell.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/blueXploit">blueXploit</a></h3>
+    <div class="meta">bluetooth · CVE-2023-45866 · CVE-2024-21306 · ★16</div>
+    <p>Exploit toolkit for critical Bluetooth vulnerabilities, incl. Android BLE pairing injection. Python, documented PoCs.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/mcp-radar">mcp-radar — negative-day radar for MCP</a></h3>
+    <div class="meta">supply-chain · AI infra</div>
+    <p>Watches 20 MCP servers and SDKs for silent security patches <em>before</em> a CVE exists, and publishes a daily diffed intel digest.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/mcp-tool-poisoning">MCP tool poisoning</a></h3>
+    <div class="meta">AI security · research</div>
+    <p>Research on poisoned-tool attacks against Model Context Protocol agents: detection patterns and hardening notes.</p>
+  </article>
+</div>
+
+<h2 id="ai">AI &amp; automation</h2>
+<div class="grid">
+  <article>
+    <h3><a href="https://github.com/Danyw24/A.R.G.O.S-">A.R.G.O.S</a></h3>
+    <div class="meta">retrieval · optimization · realtime</div>
+    <p>Real-time AI system combining information retrieval and general optimization for search and answer generation over large document sets.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/BusinessAssistant_AI">BusinessAssistant AI</a></h3>
+    <div class="meta">multi-agent · python</div>
+    <p>A team of specialized AI agents collaborating on business tasks and Excel data processing pipelines.</p>
+  </article>
+</div>
+
+<h2>Also</h2>
+<ul class="plain">
+  <li>Android persistence (msfvenom + custom service injection)</li>
+  <li>HID attack device — rubber-ducky class, Arduino ATmega328p</li>
+  <li>Heap exploitation practice (turbo-malloc-pwn, glibc)</li>
+  <li>Local GPU voice dictation stack (faster-whisper, fully offline)</li>
+  <li>ESP8266 wireless hand-tracking receiver</li>
+  <li>Training: HTB CPTS path (in progress)</li>
+</ul>
+
+<h2>Stack</h2>
+<ul class="plain">
+  <li>Python · Bash · C/C++</li>
+  <li>Linux systems engineering (systemd, PipeWire, Wayland)</li>
+  <li>AI agent harnesses (opencode, MCP, OpenAI-compatible APIs)</li>
+  <li>Faster-Whisper / Piper speech pipelines</li>
+  <li>Embedded: Arduino, ESP8266, UART/JTAG</li>
+  <li>Exploit dev: msfvenom, GDB, pwntools</li>
+</ul>
+
+<footer>Daniel · Tolosa Studio · <a href="https://github.com/Danyw24" style="color:var(--accent)">github.com/Danyw24</a> · CV available on request</footer>
+</body>
+</html>
