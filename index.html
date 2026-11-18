@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daniel — Security Research & AI Automation</title>
-<meta name="description" content="Independent security researcher and AI automation developer. Founder of Tolosa Studio.">
+<title>AI agent security &amp; data automation</title>
+<meta name="description" content="AI agent security and data automation. I build AI agents — and I know how they break.">
 <style>
   :root{
     --bg:#faf9f5; --ink:#1f1e1b; --muted:#6e6a5e; --accent:#c96442; --line:#e8e4d9; --card:#fffdf8;
@@ -35,29 +35,19 @@
 </head>
 <body>
 <header>
-  <h1>Daniel <em>·</em> Security Research &amp; AI Automation</h1>
-  <p class="tag">Independent researcher and developer. Founder of <strong>Tolosa Studio</strong>. Medellín, Colombia.</p>
-  <p class="tag">I break things carefully, then build automation so nobody has to do it twice.</p>
+  <h1>AI agent security &amp; data automation</h1>
+  <p class="tag">I build AI agents — and I know how they break.</p>
+  <p class="tag">Medellín, Colombia.</p>
   <nav>
     <a href="https://github.com/Danyw24">github ↗</a>
-    
     <a href="#research">research</a>
     <a href="#ai">ai &amp; automation</a>
+    <a href="#work">work with me</a>
   </nav>
 </header>
 
 <h2 id="research">Security research</h2>
 <div class="grid">
-  <article>
-    <h3><a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking-">ZyXEL P-870HN: from bare PCB to root</a></h3>
-    <div class="meta">hardware · UART · CVE-2025-0890 + CVE-2024-40891</div>
-    <p>Full hardware-hacking writeup of a Broadcom BCM6368 router on my own equipment: UART discovery, firmware analysis, and chained CVEs to root shell.</p>
-  </article>
-  <article>
-    <h3><a href="https://github.com/Danyw24/blueXploit">blueXploit</a></h3>
-    <div class="meta">bluetooth · CVE-2023-45866 · CVE-2024-21306 · ★16</div>
-    <p>Exploit toolkit for critical Bluetooth vulnerabilities, incl. Android BLE pairing injection. Python, documented PoCs.</p>
-  </article>
   <article>
     <h3><a href="https://github.com/Danyw24/mcp-radar">mcp-radar — negative-day radar for MCP</a></h3>
     <div class="meta">supply-chain · AI infra</div>
@@ -68,24 +58,41 @@
     <div class="meta">AI security · research</div>
     <p>Research on poisoned-tool attacks against Model Context Protocol agents: detection patterns and hardening notes.</p>
   </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/the-php2shell-recipe">the-php2shell-recipe</a></h3>
+    <div class="meta">CVE-2026-109618/19 · reproduction · gdb</div>
+    <p>Reproduces the public PoC and verifies RCE across three PHP builds with gdb.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking-">ZyXEL P-870HN: from bare PCB to root</a></h3>
+    <div class="meta">hardware · UART · CVE-2025-0890 + CVE-2024-40891</div>
+    <p>Full hardware-hacking writeup of a Broadcom BCM6368 router on my own equipment: UART discovery, firmware analysis, and chained CVEs to root shell.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Danyw24/blueXploit">blueXploit</a></h3>
+    <div class="meta">bluetooth · CVE-2023-45866 · CVE-2024-21306 · ★16</div>
+    <p>Exploit toolkit for critical Bluetooth vulnerabilities, incl. Android BLE pairing injection. Python, documented PoCs.</p>
+  </article>
 </div>
 
 <h2 id="ai">AI &amp; automation</h2>
 <div class="grid">
   <article>
-    <h3><a href="https://github.com/Danyw24/A.R.G.O.S-">A.R.G.O.S</a></h3>
-    <div class="meta">retrieval · optimization · realtime</div>
-    <p>Real-time AI system combining information retrieval and general optimization for search and answer generation over large document sets.</p>
+    <h3>Multi-model agent orchestration</h3>
+    <div class="meta">multi-agent · git worktrees · verification</div>
+    <p>A director delegates tasks to worker agents in isolated git worktrees, each with a verification command. Work is integrated only when verification passes.</p>
   </article>
   <article>
-    <h3><a href="https://github.com/Danyw24/BusinessAssistant_AI">BusinessAssistant AI</a></h3>
-    <div class="meta">multi-agent · python</div>
-    <p>A team of specialized AI agents collaborating on business tasks and Excel data processing pipelines.</p>
+    <h3>Verified data extraction</h3>
+    <div class="meta">scraping · source verification</div>
+    <p>Scrapers and lists with every record checked against its source URL; if an email is absent from the source, the record is not delivered.</p>
   </article>
 </div>
 
 <h2>Also</h2>
 <ul class="plain">
+  <li>A.R.G.O.S — real-time retrieval and optimization over large document sets</li>
+  <li>BusinessAssistant AI — multi-agent business tasks and Excel data processing</li>
   <li>Android persistence (msfvenom + custom service injection)</li>
   <li>HID attack device — rubber-ducky class, Arduino ATmega328p</li>
   <li>Heap exploitation practice (turbo-malloc-pwn, glibc)</li>
@@ -93,6 +100,21 @@
   <li>ESP8266 wireless hand-tracking receiver</li>
   <li>Training: HTB CPTS path (in progress)</li>
 </ul>
+
+<h2 id="work">Work with me</h2>
+<div class="grid">
+  <article>
+    <h3>MCP server security review</h3>
+    <div class="meta">tool poisoning · prompt injection · hardening</div>
+    <p>Review of tool poisoning, prompt injection, excessive tool permissions, and secret handling. Deliverable: a report with reproducible PoCs and fixes. Fixed price after a 15-minute scope check.</p>
+  </article>
+  <article>
+    <h3>Verified data extraction</h3>
+    <div class="meta">custom scrapers · verified lists</div>
+    <p>Custom scraper or list, with every record verified against its source. Free 10-row sample within 24 hours before you pay anything.</p>
+  </article>
+</div>
+<p class="tag">Contact: <a href="mailto:{{EMAIL}}" style="color:var(--accent)">{{EMAIL}}</a> · <a href="{{UPWORK_URL}}" style="color:var(--accent)">hire me</a> · <a href="https://github.com/Danyw24" style="color:var(--accent)">GitHub ↗</a></p>
 
 <h2>Stack</h2>
 <ul class="plain">
@@ -104,6 +126,6 @@
   <li>Exploit dev: msfvenom, GDB, pwntools</li>
 </ul>
 
-<footer>Daniel · Tolosa Studio · <a href="https://github.com/Danyw24" style="color:var(--accent)">github.com/Danyw24</a> </footer>
+<footer>Daniel · <a href="https://github.com/Danyw24" style="color:var(--accent)">github.com/Danyw24</a></footer>
 </body>
 </html>
