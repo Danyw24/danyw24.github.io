@@ -1,0 +1,12 @@
+{
+  "name": "danyw24-site",
+  "private": true,
+  "description": "Build of the 3D intro (three.js) for danyw24.github.io",
+  "scripts": {
+    "build": "esbuild src/intro.js --bundle --minify --format=esm --target=es2020 --outfile=assets/intro.min.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "three": "0.187.0"
+  }
+}

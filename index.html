@@ -3,129 +3,355 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI agent security &amp; data automation</title>
-<meta name="description" content="AI agent security and data automation. I build AI agents — and I know how they break.">
-<style>
-  :root{
-    --bg:#faf9f5; --ink:#1f1e1b; --muted:#6e6a5e; --accent:#c96442; --line:#e8e4d9; --card:#fffdf8;
-  }
-  *{box-sizing:border-box;margin:0}
-  body{background:var(--bg);color:var(--ink);font:16px/1.7 Georgia,'Times New Roman',serif;max-width:820px;margin:0 auto;padding:48px 24px 96px}
-  header{border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:40px}
-  h1{font-size:34px;font-weight:400;letter-spacing:-.5px}
-  h1 em{color:var(--accent);font-style:normal}
-  .tag{color:var(--muted);font-size:15px;margin-top:8px}
-  nav{margin-top:20px;font-family:ui-monospace,monospace;font-size:13px}
-  nav a{color:var(--accent);text-decoration:none;margin-right:18px}
-  nav a:hover{text-decoration:underline}
-  h2{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif;margin:48px 0 16px}
-  article{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:14px}
-  article h3{font-size:19px;font-weight:400}
-  article h3 a{color:var(--ink);text-decoration:none}
-  article h3 a:hover{color:var(--accent)}
-  .meta{font-family:ui-monospace,monospace;font-size:12px;color:var(--accent);margin:2px 0 8px}
-  p{color:#3d3a33}
-  .tags{margin-top:10px;font-family:ui-monospace,monospace;font-size:11.5px;color:var(--muted)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  ul.plain{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:14.5px}
-  ul.plain li::before{content:"— ";color:var(--accent)}
-  footer{border-top:1px solid var(--line);margin-top:56px;padding-top:20px;color:var(--muted);font-size:13.5px;font-family:ui-monospace,monospace}
-  @media(max-width:640px){.grid,ul.plain{grid-template-columns:1fr}}
-</style>
+<title>Daniel Tolosa — AI agent security &amp; automation</title>
+<meta name="description" content="Daniel Tolosa, Prague. AI agent and MCP security research, APIs and integrations, verified data extraction. Informatics student at FIT ČVUT.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danyw24.github.io/">
+<meta property="og:title" content="Daniel Tolosa — AI agent security &amp; automation">
+<meta property="og:description" content="AI agent and MCP security research, APIs and integrations, verified data extraction. Prague · Remote.">
+<link rel="preload" href="assets/fonts/VT323.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>
+/* Decide la vista antes de pintar, para que no parpadee.
+   Sin JS esto no corre y se ve la vista HR. */
+(function () {
+  var d = document.documentElement, v = "ask";
+  try {
+    var q = location.search, h = location.hash;
+    if (/[?&]hr\b/.test(q)) v = "hr";
+    else if (/[?&]terminal\b/.test(q) || h === "#terminal") v = "terminal";
+    else v = localStorage.getItem("view") || "ask";
+  } catch (e) {}
+  d.className = "js";
+  d.setAttribute("data-view", v);
+})();
+</script>
 </head>
 <body>
-<header>
-  <h1>AI agent security &amp; data automation</h1>
-  <p class="tag">I build AI agents — and I know how they break.</p>
-  <p class="tag">Medellín, Colombia.</p>
-  <nav>
-    <a href="https://github.com/Danyw24">github ↗</a>
-    <a href="#research">research</a>
-    <a href="#ai">ai &amp; automation</a>
-    <a href="#work">work with me</a>
-  </nav>
-</header>
 
-<h2 id="research">Security research</h2>
-<div class="grid">
-  <article>
-    <h3><a href="https://github.com/Danyw24/mcp-radar">mcp-radar — negative-day radar for MCP</a></h3>
-    <div class="meta">supply-chain · AI infra</div>
-    <p>Watches 20 MCP servers and SDKs for silent security patches <em>before</em> a CVE exists, and publishes a daily diffed intel digest.</p>
-  </article>
-  <article>
-    <h3><a href="https://github.com/Danyw24/mcp-tool-poisoning">MCP tool poisoning</a></h3>
-    <div class="meta">AI security · research</div>
-    <p>Research on poisoned-tool attacks against Model Context Protocol agents: detection patterns and hardening notes.</p>
-  </article>
-  <article>
-    <h3><a href="https://github.com/Danyw24/the-php2shell-recipe">the-php2shell-recipe</a></h3>
-    <div class="meta">CVE-2026-109618/19 · reproduction · gdb</div>
-    <p>Reproduces the public PoC and verifies RCE across three PHP builds with gdb.</p>
-  </article>
-  <article>
-    <h3><a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking-">ZyXEL P-870HN: from bare PCB to root</a></h3>
-    <div class="meta">hardware · UART · CVE-2025-0890 + CVE-2024-40891</div>
-    <p>Full hardware-hacking writeup of a Broadcom BCM6368 router on my own equipment: UART discovery, firmware analysis, and chained CVEs to root shell.</p>
-  </article>
-  <article>
-    <h3><a href="https://github.com/Danyw24/blueXploit">blueXploit</a></h3>
-    <div class="meta">bluetooth · CVE-2023-45866 · CVE-2024-21306 · ★16</div>
-    <p>Exploit toolkit for critical Bluetooth vulnerabilities, incl. Android BLE pairing injection. Python, documented PoCs.</p>
-  </article>
+<!-- ============ INTRO (solo con JS) ============ -->
+<div id="intro" aria-hidden="true">
+  <canvas id="scene"></canvas>
+  <div class="intro-fallback">
+    <p class="fb-line">booting danyw24...</p>
+    <p class="fb-line">Are you from HR?</p>
+  </div>
+  <div class="intro-hint">press <kbd>Y</kbd> or <kbd>N</kbd></div>
+  <div class="intro-fade"></div>
+</div>
+<div id="ask" class="sr-only" role="dialog" aria-label="Choose a view">
+  <p>Are you from HR?</p>
+  <button type="button" data-choose="hr">Yes, show the recruiter view</button>
+  <button type="button" data-choose="terminal">No, show everything</button>
 </div>
 
-<h2 id="ai">AI &amp; automation</h2>
-<div class="grid">
-  <article>
-    <h3>Multi-model agent orchestration</h3>
-    <div class="meta">multi-agent · git worktrees · verification</div>
-    <p>A director delegates tasks to worker agents in isolated git worktrees, each with a verification command. Work is integrated only when verification passes.</p>
-  </article>
-  <article>
-    <h3>Verified data extraction</h3>
-    <div class="meta">scraping · source verification</div>
-    <p>Scrapers and lists with every record checked against its source URL; if an email is absent from the source, the record is not delivered.</p>
-  </article>
-</div>
+<!-- ============ VISTA HR (HTML puro, por defecto) ============ -->
+<main id="hr">
+  <header class="hr-head">
+    <div class="hr-top">
+      <div>
+        <h1>Daniel Tolosa</h1>
+        <p class="hr-role">AI agent security · APIs &amp; integrations · Automation</p>
+        <p class="hr-loc">Prague, Czech Republic · Remote · Preferred contact: email</p>
+      </div>
+      <a class="hr-switch" href="#terminal" data-choose="terminal">Terminal view →</a>
+    </div>
+    <nav class="hr-links" aria-label="Contact">
+      <a class="btn primary" href="mailto:juandaniel.tolosa2@gmail.com">Email</a>
+      <a class="btn" href="https://github.com/Danyw24">GitHub</a>
+      <a class="btn" href="https://huggingface.co/danyw24">Hugging Face</a>
+      <a class="btn" href="https://www.upwork.com/freelancers/~01605c42c6a2013d1a">Upwork</a>
+      <a class="btn" href="assets/Daniel-Tolosa-CV.pdf" download>Download CV (PDF)</a>
+    </nav>
+  </header>
 
-<h2>Also</h2>
-<ul class="plain">
-  <li>A.R.G.O.S — real-time retrieval and optimization over large document sets</li>
-  <li>BusinessAssistant AI — multi-agent business tasks and Excel data processing</li>
-  <li>Android persistence (msfvenom + custom service injection)</li>
-  <li>HID attack device — rubber-ducky class, Arduino ATmega328p</li>
-  <li>Heap exploitation practice (turbo-malloc-pwn, glibc)</li>
-  <li>Local GPU voice dictation stack (faster-whisper, fully offline)</li>
-  <li>ESP8266 wireless hand-tracking receiver</li>
-  <li>Training: HTB CPTS path (in progress)</li>
-</ul>
+  <section>
+    <h2>Profile</h2>
+    <p>Informatics student at FIT ČVUT in Prague. I build and test systems around AI agents: I connect them to real services through APIs and the Model Context Protocol (MCP), and I study how they break. I verify before I trust anything, and I write down what I find.</p>
+  </section>
 
-<h2 id="work">Work with me</h2>
-<div class="grid">
-  <article>
-    <h3>MCP server security review</h3>
-    <div class="meta">tool poisoning · prompt injection · hardening</div>
-    <p>Review of tool poisoning, prompt injection, excessive tool permissions, and secret handling. Deliverable: a report with reproducible PoCs and fixes. Fixed price after a 15-minute scope check.</p>
-  </article>
-  <article>
-    <h3>Verified data extraction</h3>
-    <div class="meta">custom scrapers · verified lists</div>
-    <p>Custom scraper or list, with every record verified against its source. Free 10-row sample within 24 hours before you pay anything.</p>
-  </article>
-</div>
-<p class="tag">Contact: <a href="mailto:{{EMAIL}}" style="color:var(--accent)">{{EMAIL}}</a> · <a href="{{UPWORK_URL}}" style="color:var(--accent)">hire me</a> · <a href="https://github.com/Danyw24" style="color:var(--accent)">GitHub ↗</a></p>
+  <section>
+    <h2>Selected work</h2>
+    <h3 class="hr-group">Security research</h3>
+    <ul class="hr-work">
+      <li><a href="https://github.com/Danyw24/mcp-radar">mcp-radar</a> — watches 18 MCP servers and SDKs for silent security patches. It flagged three fixes before their public advisory, by 8 hours, 25 hours and 9.5 days.</li>
+      <li><a href="https://github.com/Danyw24/mcp-tool-poisoning">MCP tool poisoning lab</a> — a proof of concept where a poisoned tool description makes an agent leak a fake secret without the user noticing, plus a credited reproduction of CVE-2025-68143.</li>
+      <li><a href="https://github.com/Danyw24/the-php2shell-recipe">The php2shell recipe</a> — research lab on the disclosed CVE-2026-109618/19: the public chain verified under gdb on three PHP builds, and the method to map which versions are affected.</li>
+      <li><a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking">ZyXEL P-870HN, from bare PCB to root</a> — hardware hacking on my own router: board identification, serial console, and a reproduction of CVE-2025-0890 and CVE-2024-40891.</li>
+      <li><strong>CTF — hack.lu CTF 2026</strong>: solved <a href="https://github.com/Danyw24/talk-to-the-locals-quic">Talk to the Locals</a> (web, QUIC connection migration reaching a localhost-only service) and <a href="https://github.com/Danyw24/turbo-malloc-pwn">turbo-malloc</a> (pwn, custom heap allocator), both with full writeups. I also built <a href="https://github.com/Danyw24/apex-ctf-real-based-pentest">apex-ctf</a>, a deliberately vulnerable web lab.</li>
+      <li><a href="https://github.com/Danyw24/blueXploit">blueXploit</a> — reproduction of Marc Newlin's Bluetooth CVE-2023-45866, with a payload runner and reconnection logic. 16 stars on GitHub.</li>
+    </ul>
+    <h3 class="hr-group">AI &amp; automation</h3>
+    <ul class="hr-work">
+      <li>Multi-model agent orchestration — a director model splits work across worker models; every task ships with its own verification command.</li>
+      <li>Verified data extraction — datasets where every record is checked against its source page, and nothing is guessed.</li>
+      <li><a href="https://huggingface.co/danyw24">Speech AI</a> — 7 fine-tuned models and 8 Colombian Spanish speech datasets on Hugging Face.</li>
+      <li>MCP integrations — five external services connected to an AI assistant through OAuth and API tokens, each connector reviewed and built from a pinned commit.</li>
+    </ul>
+  </section>
 
-<h2>Stack</h2>
-<ul class="plain">
-  <li>Python · Bash · C/C++</li>
-  <li>Linux systems engineering (systemd, PipeWire, Wayland)</li>
-  <li>AI agent harnesses (opencode, MCP, OpenAI-compatible APIs)</li>
-  <li>Faster-Whisper / Piper speech pipelines</li>
-  <li>Embedded: Arduino, ESP8266, UART/JTAG</li>
-  <li>Exploit dev: msfvenom, GDB, pwntools</li>
-</ul>
+  <section>
+    <h2>Services</h2>
+    <ul class="hr-work">
+      <li><strong>MCP server security review</strong> — tool poisoning, prompt injection, over-privileged tools and secret handling. A report with reproducible proofs and fixes. Fixed price after a 15-minute scope check.</li>
+      <li><strong>Verified data extraction</strong> — a custom scraper or list, every record verified against its source. Free 10-row sample within 24 hours, before you pay anything.</li>
+    </ul>
+  </section>
 
-<footer>Daniel · <a href="https://github.com/Danyw24" style="color:var(--accent)">github.com/Danyw24</a></footer>
+  <section>
+    <h2>Skills</h2>
+    <p><strong>Code:</strong> Python, Bash, C/C++, Git · <strong>APIs:</strong> REST, JSON, OAuth 2.0, MCP · <strong>Systems:</strong> Linux, systemd, SSH, TCP/IP, DNS, UART/serial, Raspberry Pi, Arduino/ESP · <strong>Security:</strong> gdb, pwntools, hardware hacking, LLM/agent security (OWASP LLM Top 10) · <strong>AI tools:</strong> Claude Code (skills, MCP), local LLMs</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul class="hr-work">
+      <li><strong>BSc Informatics (English programme)</strong>, FIT ČVUT, Czech Technical University in Prague, 2026–present</li>
+      <li><strong>Technician in Electricity and Electronics</strong>, Centro Don Bosco, Bogotá, 2022–2024</li>
+    </ul>
+    <p class="hr-lang">Spanish (native) · English (C1) · Czech (B1)</p>
+  </section>
+
+  <footer class="hr-foot">
+    <a href="#terminal" data-choose="terminal">Prefer the terminal? →</a>
+  </footer>
+</main>
+
+<!-- ============ VISTA TERMINAL ============ -->
+<section id="terminal" aria-label="Terminal view">
+  <a class="to-hr" href="#hr" data-choose="hr">[ HR view ]</a>
+
+  <div id="screen" class="screen">
+    <div id="screen-inner" class="screen-inner">
+
+      <div class="blk" data-sec="whoami">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">whoami</span></p>
+        <div class="out">
+          <p class="big">Daniel Tolosa</p>
+          <p>AI agent security · APIs &amp; integrations · automation</p>
+          <p class="dim">Prague, Czech Republic · Remote · informatics @ FIT ČVUT</p>
+          <p>I build AI agents, and I know how they break.</p>
+        </div>
+      </div>
+
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">ls research/</span></p>
+        <div class="out ls">
+          <a href="https://github.com/Danyw24/mcp-radar"><span>mcp-radar/</span><span class="dim">supply-chain · AI</span></a>
+          <a href="https://github.com/Danyw24/mcp-tool-poisoning"><span>tool-poisoning/</span><span class="dim">MCP · agents</span></a>
+          <a href="https://github.com/Danyw24/the-php2shell-recipe"><span>php2shell/</span><span class="dim">CVE reproduction · gdb</span></a>
+          <a href="https://github.com/Danyw24/zyxel-p870hn-hardware-hacking"><span>zyxel-p870hn/</span><span class="dim">hardware · UART</span></a>
+          <a href="https://github.com/Danyw24/blueXploit"><span>bluexploit/</span><span class="dim">bluetooth · 16 stars</span></a>
+        </div>
+      </div>
+
+      <!-- mcp-radar -->
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">cat mcp-radar/README</span></p>
+        <div class="out">
+          <p>Negative-day radar for MCP. Built on spaceraccoon's vulnerability-spoiler-alert, retargeted to 18 MCP servers and SDKs. Every 6 hours an LLM reads each new commit diff and asks: is this a silent security patch?</p>
+        </div>
+      </div>
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./mcp-radar --scan</span></p>
+        <div class="out scan">
+          <p><span>python-sdk</span><span class="dim">· clean</span></p>
+          <p><span>inspector</span><span class="dim">· clean</span></p>
+          <p class="flag"><span>serena</span><span>FLAG · silent security patch</span></p>
+          <p><span>context7</span><span class="dim">· clean</span></p>
+        </div>
+      </div>
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./mcp-radar --beat-the-advisory</span></p>
+        <div class="out bars">
+          <p><span>python-sdk</span><span class="bar" style="--v:1"></span><a href="https://github.com/Danyw24/mcp-radar/issues/9">9.5 d · #9</a></p>
+          <p><span>serena</span><span class="bar" style="--v:.111"></span><a href="https://github.com/Danyw24/mcp-radar/issues/165">25 h · #165</a></p>
+          <p><span>typescript-sdk</span><span class="bar" style="--v:.036"></span><a href="https://github.com/Danyw24/mcp-radar/issues/17">8 h · #17</a></p>
+          <p class="dim">how long before the public advisory each fix was flagged</p>
+          <p class="sum"><span data-count="18">18</span> repos · every 6 h · <span data-count="612">612</span> commits flagged for review</p>
+        </div>
+      </div>
+
+      <!-- tool poisoning -->
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./victim_agent "what's the weather in Madrid?"</span></p>
+        <div class="out">
+          <div class="pane">
+            <p class="pane-t">what the user sees</p>
+            <p><span class="dim">you&gt;</span> what's the weather in Madrid?</p>
+            <p><span class="dim">agent&gt;</span> (a normal weather answer, no secret in it)</p>
+            <p>ORACLE: canary in the response -&gt; <strong>NO</strong></p>
+          </div>
+          <div class="pane under">
+            <p class="pane-t">what actually happened</p>
+            <p>The tool's description, which the user never reads, carried a hidden instruction for the model.</p>
+            <p>The model obeyed it and passed the agent's secret inside a tool argument:</p>
+            <p class="hit">CANARY-54715b89d081 <span class="dim">→ written to the attacker's log</span></p>
+            <p class="dim">The canary is fake. Local lab, local model.</p>
+          </div>
+          <p class="dim">Also in the lab: a reproduction of CVE-2025-68143 in mcp-server-git, disclosed by yardenporat and fixed upstream.</p>
+        </div>
+      </div>
+
+      <!-- php2shell -->
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">cat php2shell/STATUS</span></p>
+        <div class="out">
+          <p>Research lab on CVE-2026-109618/19, disclosed and patched upstream.</p>
+          <div class="window" aria-label="Affected version window">
+            <span class="w-end">8.3.35</span>
+            <span class="w-line">
+              <i style="--x:0">8.3.35</i><i style="--x:.5">8.4.26</i><i style="--x:1">8.5.11</i>
+            </span>
+            <span class="w-end">8.5.11</span>
+          </div>
+          <p class="dim">vulnerable window · 3 builds verified end to end</p>
+          <ol class="stages">
+            <li>stage 1</li><li>stage 2</li><li>stage 3</li><li>stage 4</li>
+          </ol>
+          <p class="dim">every link of the four-stage chain watched under gdb</p>
+          <p>uid=0(root) <span class="dim">· loopback Docker labs only</span></p>
+          <p class="dim">Disclosure: calif.io / watchTowr · reference PoC: KillaBoi · this lab: the version map, the gdb method and the adaptation pipeline.</p>
+        </div>
+      </div>
+
+      <!-- ZyXEL -->
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">open zyxel-p870hn/board.png</span></p>
+        <div class="out">
+          <figure class="board">
+            <img src="assets/zyxel-board.png" width="640" height="466" alt="Photo of the ZyXEL P-870HN board, dithered in green">
+            <span class="mark" style="left:50.6%;top:33.6%;width:23.3%;height:33.6%"><b>SoC BCM6368</b></span>
+            <span class="mark" style="left:26.7%;top:33.9%;width:15.5%;height:35.6%"><b>DDR2 RAM</b></span>
+            <span class="mark j2" style="left:78.7%;top:60.3%;width:4.9%;height:14.8%"><b>J2 · UART</b></span>
+          </figure>
+          <ol class="path">
+            <li>photo</li><li>chip ID</li><li>UART</li><li>console</li><li>root</li>
+          </ol>
+          <div class="findings">
+            <p><span>F-1</span><span>hardcoded factory accounts</span><span class="dim">CWE-798 · high</span></p>
+            <p><span>F-2</span><span>command injection in the CLI</span><span class="dim">CWE-78 · high</span></p>
+            <p><span>F-3</span><span>weak password hashing</span><span class="dim">CWE-916 · medium</span></p>
+          </div>
+          <p class="dim">Reproduction of CVE-2025-0890 + CVE-2024-40891 on my own hardware, air-gapped.</p>
+        </div>
+      </div>
+
+      <!-- blueXploit -->
+      <div class="blk" data-sec="research">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">play bluexploit/demo</span></p>
+        <div class="out">
+          <div class="tape" data-yt="Zez8hKRI_7M">
+            <img src="assets/bluexploit-poster.png" width="560" height="315" alt="Frame from the blueXploit demo video">
+            <a class="tape-btn" href="https://www.youtube.com/watch?v=Zez8hKRI_7M">▶ play demo <span class="dim">(loads YouTube)</span></a>
+          </div>
+          <p>Reproduction of CVE-2023-45866, discovered by Marc Newlin. Adds a payload runner and reconnection logic. 16 stars · 2 forks.</p>
+          <p class="dim">Video not loading? <a href="https://www.youtube.com/watch?v=Zez8hKRI_7M">watch it on YouTube ↗</a></p>
+        </div>
+      </div>
+
+      <!-- CTF -->
+      <div class="blk ctf" data-sec="ctf">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./ctf --event hack.lu</span></p>
+        <div class="out">
+          <div class="board">
+            <p class="board-h"><span>hack.lu CTF</span><span>October 2026</span><span>2 solved</span></p>
+
+            <article class="chal">
+              <p class="chal-t"><span class="cat web">web</span><span class="name">Talk to the Locals</span><span class="stamp">SOLVED</span></p>
+              <p class="dim">The flag server listens on IPv6 localhost and the bot's browser refuses to fetch it. But a migration is not a fetch: the browser moves its live QUIC session there on its own, carrying the request with it.</p>
+              <div class="flow">
+                <span>advertise HTTP/3</span><span>browser upgrades</span><span>migrate to ::1</span><span>flag</span>
+              </div>
+              <p class="repo"><a href="https://github.com/Danyw24/talk-to-the-locals-quic">talk-to-the-locals-quic ↗</a></p>
+            </article>
+
+            <article class="chal">
+              <p class="chal-t"><span class="cat pwn">pwn</span><span class="name">turbo-malloc</span><span class="stamp">SOLVED</span></p>
+              <p class="dim">The binary ships its own heap allocator over a static buffer, so every chunk header is just data. A size mismatch on resize makes it hand back memory it should never reach.</p>
+              <div class="flow">
+                <span>forge header</span><span>overlapping chunk</span><span>libc leak</span><span>shell</span>
+              </div>
+              <p class="repo"><a href="https://github.com/Danyw24/turbo-malloc-pwn">turbo-malloc-pwn ↗</a></p>
+            </article>
+          </div>
+          <p class="dim">Writeups explain the mechanism, not a copy-paste weapon. Also <a href="https://github.com/Danyw24/apex-ctf-real-based-pentest">apex-ctf</a>, a vulnerable lab I built to train on web findings.</p>
+        </div>
+      </div>
+
+      <!-- automation -->
+      <div class="blk" data-sec="automation">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./orchestrate --replay 2026-11-18</span></p>
+        <div class="out runs">
+          <p class="dim">director: opus · 4 tasks · 3 workers</p>
+          <p><span>kimi</span><span>site-rewrite</span><span>verify → OK</span><span class="ok">[ok]</span></p>
+          <p><span>glm</span><span>sample-wa</span><span>verify → 54 rows, 0 bad</span><span class="ok">[ok]</span></p>
+          <p><span>glm</span><span>sample-nordic</span><span>verify → 12 rows, 0 bad</span><span class="ok">[ok]</span></p>
+          <p><span>flash</span><span>mcp-corpus</span><span>verify → OK 80</span><span class="ok">[ok]</span></p>
+          <p class="dim">Each task ships with its own verification command; the worker reports its real output.</p>
+        </div>
+      </div>
+      <div class="blk" data-sec="automation">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./extract --verify sample.csv</span></p>
+        <div class="out rows">
+          <p><span>email ••••••@••••.org</span><span>found on source page</span><span class="ok">ok</span></p>
+          <p><span>email ••••••@••••.org</span><span>found on source page</span><span class="ok">ok</span></p>
+          <p><span>email ••••••@••••.org</span><span>found on source page</span><span class="ok">ok</span></p>
+          <p class="blank"><span>email (broken on the source page)</span><span></span><span>left blank</span></p>
+          <p class="sum">54 rows · 53 verified · 1 blank · 0 guessed</p>
+        </div>
+      </div>
+
+      <!-- services -->
+      <div class="blk" data-sec="services">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">./services --help</span></p>
+        <div class="out">
+          <p class="opt"><strong>--mcp-review</strong> MCP server security review: tool poisoning, prompt injection, over-privileged tools, secret handling. Report with reproducible proofs and fixes. Fixed price after a 15-minute scope check.</p>
+          <p class="opt"><strong>--extract</strong> Verified data extraction: custom scraper or list, every record checked against its source. Free 10-row sample in 24 h before you pay.</p>
+        </div>
+      </div>
+
+      <div class="blk" data-sec="services">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">cat stack.txt</span></p>
+        <div class="out">
+          <p>Python · Bash · C/C++ · Git</p>
+          <p>REST · JSON · OAuth 2.0 · MCP</p>
+          <p>Linux · systemd · networking · UART · Raspberry Pi · ESP</p>
+          <p>gdb · pwntools · hardware hacking · LLM/agent security</p>
+          <p>Hugging Face: 7 speech models · 8 Colombian Spanish datasets</p>
+        </div>
+      </div>
+
+      <div class="blk" data-sec="contact">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">contact</span></p>
+        <div class="out links">
+          <p><span>email</span><a href="mailto:juandaniel.tolosa2@gmail.com">juandaniel.tolosa2@gmail.com</a></p>
+          <p><span>github</span><a href="https://github.com/Danyw24">github.com/Danyw24</a></p>
+          <p><span>huggingface</span><a href="https://huggingface.co/danyw24">huggingface.co/danyw24</a></p>
+          <p><span>upwork</span><a href="https://www.upwork.com/freelancers/~01605c42c6a2013d1a">upwork profile</a></p>
+          <p class="dim">email preferred · Prague (CET) · remote</p>
+        </div>
+      </div>
+
+      <div class="blk last" data-sec="contact">
+        <p class="cmd"><span class="ps1">daniel@danyw24:~$</span> <span class="typed">exit</span></p>
+        <div class="out"><p class="dim">logout</p></div>
+      </div>
+
+    </div>
+    <nav class="statusbar" aria-label="Sections">
+      <a href="#terminal" data-go="whoami">whoami</a>
+      <a href="#terminal" data-go="research">research</a>
+      <a href="#terminal" data-go="ctf">ctf</a>
+      <a href="#terminal" data-go="automation">automation</a>
+      <a href="#terminal" data-go="services">services</a>
+      <a href="#terminal" data-go="contact">contact</a>
+    </nav>
+    <div class="crt-fx" aria-hidden="true"></div>
+  </div>
+  <div id="scroll-spacer" aria-hidden="true"></div>
+</section>
+
+<script src="assets/site.js" defer></script>
 </body>
 </html>
